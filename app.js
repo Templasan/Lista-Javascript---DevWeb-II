@@ -53,9 +53,45 @@ switch (Questao) {
         let AtvdP = Number(prompt("Digite a nota da Atividade Prática em Laboratório:"))
         let Prova = Number(prompt("Digite a nota da Prova:"))
         let Trabalho = Number(prompt("Digite a nota do Trabalho Teórico:"))
+
+        let MediaP = ((AtvdP * 2) + (Prova * 5) + (Trabalho * 3)) / 10
+        alert(MediaP)
+        if (MediaP >= 0 & MediaP < 5){
+            let classificacao = "F"
+        } else if (MediaP >= 5 & MediaP < 6){
+            let classificacao = "E"
+        } else if (MediaP >= 6 & MediaP < 7){
+            let classificacao = "D"
+        } else if (MediaP >= 7 & MediaP < 8){
+            let classificacao = "C"
+        } else if (MediaP >= 8 & MediaP < 9){
+            let classificacao = "B"
+        } else if (MediaP >= 9 & MediaP <= 10){
+            let classificacao = "A"
+        } else {
+            alert("Valores inválidos")
+        }
+        alert(`A média do aluno é = ${MediaP*10} e sua sua classificação é ${classificacao}`)
         break;
     case 4:
         alert("Você escolheu a opção 4.");
+        let Valor = 0
+        while (true){
+            let Rastreio = prompt("Você deseja rastreio? Digite S ou N")
+            if (Rastreio == "S") {
+                Valor = Valor + 200
+            }
+            if (Rastreio == "S" || Rastreio == "N"){
+                break
+            }
+        }
+
+        while (true){
+            let Regiao = prompt("Selecione a região: Digite 1 para Região SUL, 2 para SUDESTE, 3 para CENTRO-OESTE")
+            if (Regiao == 1){
+                let 
+            }
+        }
         break;
     case 5:
         alert("Você escolheu a opção 5.");
