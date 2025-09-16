@@ -241,10 +241,8 @@ case 7:
         break;
     }
 
-    // JavaScript usa meses de 0 (janeiro) a 11 (dezembro)
     let dataObj = new Date(ano, mes - 1, dia);
 
-    // Verifica se o objeto Date criou a data corretamente
     if (
         dataObj.getDate() !== dia ||
         dataObj.getMonth() !== (mes - 1) ||
@@ -265,4 +263,5 @@ case 7:
 default:
     alert("Opção inválida.");
     break;
+
 
