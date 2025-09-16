@@ -221,29 +221,48 @@ switch (Questao) {
         let resultado = calculo(num1, num2, operacao);
         alert(`O resultado é: ${resultado}`);
         break;
+case 7:
+    alert("Você escolheu a opção 7.");
+    let data = prompt("Digite a data no formato dd/mm/aaaa:");
 
-    case 7:
-        alert("Você escolheu a opção 7.");
-        let data = prompt("Digite a data no formato dd/mm/aaaa:");
-        let partes = data.split("/");
+    let partes = data.split("/");
 
-        let dia = partes[0];
-        let mes = Number(partes[1]);
-        let ano = partes[2];
-
-        let meses = [
-            "janeiro", "fevereiro", "março", "abril", "maio", "junho",
-            "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"
-        ];
-
-        if (mes >= 1 && mes <= 12) {
-            alert(`${dia} de ${meses[mes - 1]} de ${ano}`);
-        } else {
-            alert("Mês inválido!");
-        }
+    if (partes.length !== 3) {
+        alert("Formato de data inválido.");
         break;
+    }
 
-    default:
-        alert("Opção inválida.");
+    let dia = parseInt(partes[0], 10);
+    let mes = parseInt(partes[1], 10);
+    let ano = parseInt(partes[2], 10);
+
+    if (isNaN(dia) || isNaN(mes) || isNaN(ano)) {
+        alert("Data contém valores inválidos.");
         break;
-}
+    }
+
+    // JavaScript usa meses de 0 (janeiro) a 11 (dezembro)
+    let dataObj = new Date(ano, mes - 1, dia);
+
+    // Verifica se o objeto Date criou a data corretamente
+    if (
+        dataObj.getDate() !== dia ||
+        dataObj.getMonth() !== (mes - 1) ||
+        dataObj.getFullYear() !== ano
+    ) {
+        alert("Data inválida!");
+        break;
+    }
+
+    let meses = [
+        "janeiro", "fevereiro", "março", "abril", "maio", "junho",
+        "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"
+    ];
+
+    alert(`${dia} de ${meses[mes - 1]} de ${ano}`);
+    break;
+
+default:
+    alert("Opção inválida.");
+    break;
+
